@@ -34,7 +34,7 @@ class Statuspage {
 			if ($check instanceof StatusCheck) {
 				return $check->performCheck();
 			} elseif (is_array($check)) {
-				return $check->map(function ($check, $label) {
+				return collect($check)->map(function ($check, $label) {
 					if ($check instanceof StatusCheck) {
 						return $check->performCheck();
 					} else {
