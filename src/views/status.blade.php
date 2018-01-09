@@ -56,6 +56,16 @@
 			section .checks .check:last-child {
 				margin-bottom: 0;
 			}
+
+			.indicator {
+				padding: 1px;
+				border: 1px solid;
+			}
+
+			.indicator-center {
+				width: calc(1em - 4px);
+				height: calc(1em - 4px);
+			}
 		</style>
 	</head>
 	<body>

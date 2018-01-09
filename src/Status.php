@@ -28,6 +28,23 @@ class Status implements JsonSerializable {
 		}
 	}
 
+	public function color() {
+		switch ($this->status) {
+			case 0:
+				return '8BC34A';
+			case 1:
+				return 'FBC02D';
+			case 2:
+				return 'FF9800';
+			case 3:
+				return 'F57C00';
+			case 4:
+				return 'E65100';
+			default:
+				return '000000';
+		}
+	}
+
 	/** @var $OPERATIONAL Status */
 	static $OPERATIONAL;
 	/** @var $MAINTENANCE Status */
