@@ -28,6 +28,6 @@ class Http200Check extends StatusCheck {
 		$code = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 		curl_close($ch);
 
-		return ($code === $this->status) ? Status::$OPERATIONAL : Status::$MAJOR_OUTAGE;
+		return ($code === $this->status) ? Status::$OPERATIONAL : Status::$MAJOR_OUTAGE->withExplanation("Expected HTTP {$this->status}, got HTTP $code");
 	}
 }

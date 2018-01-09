@@ -6,12 +6,23 @@ use JsonSerializable;
 class Status implements JsonSerializable {
 	/** @var $status integer */
 	private $status;
+	/** @var $explanation string */
+	private $explanation;
 
-	private function __construct($status) {
+	private function __construct($status, $explanation = null) {
 		$this->status = $status;
+		$this->explanation = $explanation;
 	}
 
 	public function __toString() {
+		if ($this->explanation) {
+			return $this->explanation;
+		} else {
+			return $this->statusText();
+		}
+	}
+
+	private function statusText() {
 		switch ($this->status) {
 			case 0:
 				return 'Operational';
@@ -45,6 +56,27 @@ class Status implements JsonSerializable {
 		}
 	}
 
+	/**
+	 * Return a new Status based on this one with an explanation
+	 *
+	 * @param $explanation
+	 * @return Status
+	 */
+	public function withExplanation($explanation) {
+		return new self($this->status, $explanation);
+	}
+
+	/**
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
+	 */
+	function jsonSerialize() {
+		return ['status' => $this->statusText(), 'description' => (string)$this];
+	}
+
 	/** @var $OPERATIONAL Status */
 	static $OPERATIONAL;
 	/** @var $MAINTENANCE Status */
@@ -62,17 +94,6 @@ class Status implements JsonSerializable {
 		self::$DEGRADED = new self(2);
 		self::$PARTIAL_OUTAGE = new self(3);
 		self::$MAJOR_OUTAGE = new self(4);
-	}
-
-	/**
-	 * Specify data which should be serialized to JSON
-	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-	 * @return mixed data which can be serialized by <b>json_encode</b>,
-	 * which is a value of any type other than a resource.
-	 * @since 5.4.0
-	 */
-	function jsonSerialize() {
-		return (string)$this;
 	}
 }
 Status::init();
