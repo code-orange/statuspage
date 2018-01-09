@@ -14,4 +14,8 @@ class Controller extends BaseController {
 		$status = $this->statuspage->execute();
 		return view(env('STATUSPAGE_VIEW', 'statuspage::status'), ['status' => $status]);
 	}
+
+	public function json() {
+		return response()->json($this->statuspage->execute());
+	}
 }

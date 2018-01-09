@@ -14,5 +14,11 @@ class StatuspageProvider extends ServiceProvider {
 		$this->loadViewsFrom(__DIR__ . '/views', 'statuspage');
 
 		$this->app->router->get(env('STATUSPAGE_ROUTE', '/'), Controller::class . '@status');
+
+		if (substr(env('STATUSPAGE_ROUTE', '/'), -1) === '/') {
+			$this->app->router->get(env('STATUSPAGE_ROUTE', '/') . 'json', Controller::class . '@json');
+		} else {
+			$this->app->router->get(env('STATUSPAGE_ROUTE', '/') . '.json', Controller::class . '@json');
+		}
 	}
 }
