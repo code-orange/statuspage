@@ -27,7 +27,7 @@ class DatabaseConnectionCheck extends StatusCheck {
 		$db = app(DatabaseManager::class);
 
 		try {
-			$db->connection($this->connectionName)->table($db->raw('DUAL'))->select('1')->get();
+			$db->connection($this->connectionName)->table($db->raw('DUAL'))->select($db->raw('1'))->get();
 		} catch (\InvalidArgumentException $e) {
 			return $this->verbose ? Status::$PARTIAL_OUTAGE->withExplanation("Database connection {$this->connectionName} not found") : Status::$PARTIAL_OUTAGE;
 		} catch (QueryException $e) {
