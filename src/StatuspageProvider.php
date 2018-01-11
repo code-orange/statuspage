@@ -1,9 +1,6 @@
 <?php
 namespace CodeOrange\Statuspage;
 
-use App\Console\Kernel;
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class StatuspageProvider extends ServiceProvider {
