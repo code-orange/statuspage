@@ -1,4 +1,4 @@
-Statuspage
+Statuspage [![Latest Stable Version](https://poser.pugx.org/code-orange/statuspage/v/stable)](https://packagist.org/packages/code-orange/statuspage) [![Total Downloads](https://poser.pugx.org/code-orange/statuspage/downloads)](https://packagist.org/packages/code-orange/statuspage) [![License](https://poser.pugx.org/code-orange/statuspage/license)](https://packagist.org/packages/code-orange/statuspage) [![composer.lock](https://poser.pugx.org/code-orange/statuspage/composerlock)](https://packagist.org/packages/code-orange/statuspage)
 ==========
 
 Statuspage is a Lumen package that allows you to easily add a status page to an existing Lumen application or to create a dedicated Lumen status application.
