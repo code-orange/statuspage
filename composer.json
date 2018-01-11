@@ -1,0 +1,27 @@
+{
+	"name": "code-orange/statuspage",
+	"description": "A Lumen package that makes it easy to add a status page to your existing application or to create a dedicated status page application.",
+	"keywords": [
+		"php",
+		"lumen",
+		"status",
+		"statuspage"
+	],
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Tim van Dalen",
+			"email": "tim@code-orange.nl"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"laravel/lumen-framework": "^5.5"
+	},
+	"autoload": {
+		"psr-4": {
+			"CodeOrange\\Statuspage\\": "src/"
+		}
+	},
+	"minimum-stability": "dev"
+}
