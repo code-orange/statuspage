@@ -3,6 +3,8 @@
 	<head>
 		<title>{{config('app.name', ENV('APP_NAME', 'Change me with APP_NAME or config app.name'))}} status</title>
 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<style>
 			* {
@@ -70,10 +72,14 @@
 	</head>
 	<body>
 		<main>
-			<h1>{{config('app.name', ENV('APP_NAME', 'Change me with APP_NAME or config app.name'))}} status</h1>
+@if (env('STATUSPAGE_HEADER'))
+				<h1>{!! env('STATUSPAGE_HEADER') !!}</h1>
+@else
+				<h1>{{config('app.name', ENV('APP_NAME', 'Change me with APP_NAME or config app.name'))}} status</h1>
+@endif
 
 			<div>
-@foreach ($status as $l => $s)@include('statuspage::check', ['label' => $l, 'status' => $s])@endforeach
+				@foreach ($status as $l => $s)@include('statuspage::check', ['label' => $l, 'status' => $s])@endforeach
 			</div>
 		</main>
 	</body>

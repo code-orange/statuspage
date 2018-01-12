@@ -25,11 +25,17 @@ Statuspage comes with a default HTML page that displays the status of all regist
 If you'd like to make changes to this page, you should copy the view (from `vendor/code-orange/statuspage/src/views/`) to your own views folder.
 You can then set the view you would like Statuspage to render with `STATUSPAGE_VIEW`.
 
-Both environment variables are optional.
+For the header on the status page, Statuspage will normally use your `APP_NAME` or `config('app.name')` followed by the word 'status'.
+If you want to use something different, you can set the `STATUSPAGE_HEADER` environment variable.
+If this variable is set, the page header will be filled with its contents instead of the application name.
+The environment variable can contain HTML.
+
+All environment variables are optional.
 
 ```
 #STATUSPAGE_ROUTE=/
 #STATUSPAGE_VIEW=status
+#STATUSPAGE_HEADER="<img src='https://odysseyattribution.co/logo.svg' style='height: 1.5em; vertical-align: middle;'> status"
 ```
 
 ## Usage
