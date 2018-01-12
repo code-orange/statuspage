@@ -9,9 +9,14 @@ If your route doesn't end in a slash, the JSON version will be hosted at <code>/
 <p>Statuspage comes with a default HTML page that displays the status of all registered checks.
 If you'd like to make changes to this page, you should copy the view (from <code>vendor/code-orange/statuspage/src/views/</code>) to your own views folder.
 You can then set the view you would like Statuspage to render with <code>STATUSPAGE_VIEW</code>.</p>
-<p>Both environment variables are optional.</p>
+<p>For the header on the status page, Statuspage will normally use your <code>APP_NAME</code> or <code>config('app.name')</code> followed by the word 'status'.
+If you want to use something different, you can set the <code>STATUSPAGE_HEADER</code> environment variable.
+If this variable is set, the page header will be filled with its contents instead of the application name.
+The environment variable can contain HTML.</p>
+<p>All environment variables are optional.</p>
 <pre><span class="hljs-meta">#STATUSPAGE_ROUTE=/</span>
-<span class="hljs-meta">#STATUSPAGE_VIEW=status</span></pre><h2>Usage</h2>
+<span class="hljs-meta">#STATUSPAGE_VIEW=status</span>
+<span class="hljs-meta">#STATUSPAGE_HEADER=&quot;&lt;img src='https://odysseyattribution.co/logo.svg' style='height: 1.5em; vertical-align: middle;'&gt; status&quot;</span></pre><h2>Usage</h2>
 <h2>Registering checks</h2>
 <p>Statuspage works by registering <code>StatusChecks</code> (either alone or in sections) with <code>Statuspage</code>.
 We recommend doing this in the <code>boot</code> method of your <code>AppServiceProvider</code>.</p>
