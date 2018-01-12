@@ -3,6 +3,9 @@ Statuspage [![Latest Stable Version](https://poser.pugx.org/code-orange/statuspa
 
 Statuspage is a Lumen package that allows you to easily add a status page to an existing Lumen application or to create a dedicated Lumen status application.
 
+[![Demo](demo.png)](https://status.odysseyattribution.com)
+_Live demo of Statuspage. This installation is a dedicated Lumen app monitoring a bigger Laravel app._
+
 ## Installation
 
 ```
